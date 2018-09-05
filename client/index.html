@@ -60,8 +60,8 @@
     </table>
     <script src="js\app\models\negociacao.js"></script>
     <script>
-      var hoje = new Date();
-      var n1 = new Negociacao(hoje, 5, 700);
+      let hoje = new Date(); // let no html ele fica somente dentro do bloco,  ex. dentro de um loop - For
+      let n1 = new Negociacao(hoje, 5, 700);
       n1.quantidade = 1000; // obs. não é atribuido esse valor pq o get é usado como leitura.
       n1._quantidade = 800; // obs. Nesse caso é atribuido direto mas convencionalmento não se pode fazer. O programador tem que saber. Mas não é recomentado pelo programador.
       hoje.setDate(11); // vc pode conseguir fazer a alteração da data- nesse caso vc tem que usar programação defensiva.
