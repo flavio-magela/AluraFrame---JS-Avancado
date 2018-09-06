@@ -13,9 +13,34 @@ class NegociacaoController{
     event.preventDefault();
     alert("Ação realizada com sucesso.");
 
-    console.log(this._inputData.value);
-    console.log(this._inputQuantidade.value);
-    console.log(this._inputValor.value);
+    console.log(typeof(this._inputData)); //saber o tipo da variavel (string, number, date, etc..)
+    console.log(this._inputData);
+
+    let data = new Date(this._inputData.value.split('-'));
+    console.log("Data com split: " + data);
+    //ou
+    let data1 = new Date(this._inputData.value.replace (/-/,','))
+    console.log("Data com replace: " + data1);
+    // ou
+    let data2 = new Date(...
+      this._inputData.value
+      .split('-').map(function (item, indice) {
+        return item - indice % 2
+    }));
+    console.log("Data com map e indice (% -modulo de 2): " + data2);
+
+
+    let negociacao = new Negociacao(
+      data1,
+      this._inputQuantidade.value,
+      this._inputValor.value
+    );
+    console.log("Minha negociação: " + negociacao);
+    //adicionar a negociacao em uma lista
+
+    // console.log(this._inputData.value);
+    // console.log(this._inputQuantidade.value);
+    // console.log(this._inputValor.value);
   }
 
 }
