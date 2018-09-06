@@ -3,9 +3,9 @@ class NegociacaoController{
   constructor(){
 
     let $ = document.querySelector.bind(document) // metodo .bind() mantem a associação com o document (pai) como objeto e não como variável...
-    this.inputData = $('#data'); // utilizando o $ como objeto .bind()
-    this.inputQuantidade = $('#quantidade');
-    this.inputValor = $('#valor');
+    this._inputData = $('#data'); // utilizando o $ como objeto .bind()
+    this._inputQuantidade = $('#quantidade');
+    this._inputValor = $('#valor'); // "_" utilizando a convenção de acessar somente dentro do método controllers.
   }
 
   adiciona(event){
@@ -13,9 +13,9 @@ class NegociacaoController{
     event.preventDefault();
     alert("Ação realizada com sucesso.");
 
-    console.log(this.inputData.value);
-    console.log(this.inputQuantidade.value);
-    console.log(this.inputValor.value);
+    console.log(this._inputData.value);
+    console.log(this._inputQuantidade.value);
+    console.log(this._inputValor.value);
   }
 
 }
