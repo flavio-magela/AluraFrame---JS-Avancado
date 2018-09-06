@@ -16,12 +16,14 @@ class NegociacaoController{
     console.log(typeof(this._inputData)); //saber o tipo da variavel (string, number, date, etc..)
     console.log(this._inputData);
 
+    // utilizando o split
     let data = new Date(this._inputData.value.split('-'));
     console.log("Data com split: " + data);
-    //ou
+
+    //ou utilizando o replace
     let data1 = new Date(this._inputData.value.replace (/-/,','))
     console.log("Data com replace: " + data1);
-    // ou
+    // ou utilizando Map modulo de 2 - %2
     let data2 = new Date(...
       this._inputData.value
       .split('-').map(function (item, indice) {
@@ -29,13 +31,19 @@ class NegociacaoController{
     }));
     console.log("Data com map e indice (% -modulo de 2): " + data2);
 
+    // ou utilizando Arrow Functions: deixando o código ainda menos verboso
+    let data3 = new Date(...
+      this._inputData.value
+      .split('-').map((item, indice) => item - indice % 2 )); //arrow Functions "=>" retira a expressão function, os cochetes e o return... e coloca =>, pq ele entende que ele tem que fazer isso tudo
+    console.log("Data Arrow Functions: " + data3);
+
 
     let negociacao = new Negociacao(
-      data1,
+      data3,
       this._inputQuantidade.value,
       this._inputValor.value
     );
-    console.log("Minha negociação: " + negociacao);
+    console.log(negociacao);
     //adicionar a negociacao em uma lista
 
     // console.log(this._inputData.value);
