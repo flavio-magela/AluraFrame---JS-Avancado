@@ -32,7 +32,7 @@ class NegociacaoController{
     console.log("Data com map e indice (% -modulo de 2): " + data2);
 
     // ou utilizando Arrow Functions: deixando o código ainda menos verboso
-    let data3 = new Date(...
+        let data3 = new Date(... // speed operator, permite passar um array na ordem. ex. 1(primeiro), segundo e assim por diante. sempre na mesma posição
       this._inputData.value
       .split('-').map((item, indice) => item - indice % 2 )); //arrow Functions "=>" retira a expressão function, os cochetes e o return... e coloca =>, pq ele entende que ele tem que fazer isso tudo
     console.log("Data Arrow Functions: " + data3);
@@ -43,7 +43,12 @@ class NegociacaoController{
       this._inputQuantidade.value,
       this._inputValor.value
     );
-    console.log(negociacao);
+    let diaMesAno = negociacao.data.getDate()
+    + "/" + (negociacao.data.getMonth() + 1)
+    + "/" + negociacao.data.getFullYear(); //converter no modo brasileiro
+                                            // dia/mes/ano
+
+        console.log(diaMesAno);
     //adicionar a negociacao em uma lista
 
     // console.log(this._inputData.value);
